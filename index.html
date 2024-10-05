@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Hobo Cakes - Fiercely Delicious</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <!-- Replace text-based logo with the image logo -->
+      <h1 class="logo">
+        <img src="HoboCakes Intense Logo Edited.jpg" alt="Hobo Cakes Logo" style="max-width: 300px;">
+      </h1>
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#order">Order Now</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero-section">
+    <div class="hero-content">
+      <h2>Rustic Goodness, Fiercely Delicious</h2>
+      <a href="#order" class="cta-btn">Order Now</a>
+    </div>
+  </section>
+
+  <!-- About Us Section -->
+  <section id="about" class="about-section">
+    <div class="container">
+      <h2>About Hobo Cakes</h2>
+      <p>Hobo Cakes began with a love for rustic, homemade goodness combined with bold, intense flavors. Every cake is baked with passion and crafted with care. From our kitchen to your table, enjoy the fiercest cakes around!</p>
+      <a href="#menu" class="cta-btn">Explore Our Menu</a>
+    </div>
+  </section>
+
+  <!-- Menu Section -->
+  <section id="menu" class="menu-section">
+    <div class="container">
+      <h2>Our Menu</h2>
+      <div class="menu-items">
+        <div class="menu-item">
+          <img src="cake1.jpg" alt="Hobo Delight Cake">
+          <h3>Hobo Delight</h3>
+          <p>A rich chocolate cake topped with smooth caramel glaze.</p>
+        </div>
+        <div class="menu-item">
+          <img src="cake2.jpg" alt="Rustic Raspberry Cake">
+          <h3>Rustic Raspberry</h3>
+          <p>A tangy raspberry cake with cream cheese frosting.</p>
+        </div>
+        <!-- Add more menu items as needed -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Order Section -->
+  <section id="order" class="order-section">
+    <div class="container">
+      <h2>Place Your Order</h2>
+      <form action="submit-order.php" method="POST">
+        <label for="cake">Select Your Cake</label>
+        <select id="cake" name="cake">
+          <option value="hobo-delight">Hobo Delight</option>
+          <option value="rustic-raspberry">Rustic Raspberry</option>
+          <!-- Add more cakes as needed -->
+        </select>
+
+        <label for="message">Custom Message (optional)</label>
+        <input type="text" id="message" name="message">
+
+        <label for="date">Delivery Date</label>
+        <input type="date" id="date" name="date">
+
+        <label for="customer-name">Your Name</label>
+        <input type="text" id="customer-name" name="customer-name" required>
+
+        <label for="address">Delivery Address</label>
+        <input type="text" id="address" name="address" required>
+
+        <button type="submit" class="cta-btn">Place Order</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <h2>Contact Us</h2>
+      <form action="contact-form.php" method="POST">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Your Email</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Your Message</label>
+        <textarea id="message" name="message" required></textarea>
+
+        <button type="submit" class="cta-btn">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 Hobo Cakes. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script src="scripts.js"></script>
+</body>
+</html>
