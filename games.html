@@ -1,1 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Games</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #111;
+      color: #eee;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .game-container {
+      margin: 40px auto;
+      padding: 20px;
+      border: 2px solid #444;
+      border-radius: 10px;
+      background-color: #222;
+      max-width: 800px;
+    }
+
+    .embed-wrapper {
+      display: none;
+      margin-top: 20px;
+    }
+
+    iframe, embed {
+      width: 100%;
+      height: 500px;
+      border: none;
+    }
+
+    button {
+      background-color: #08f;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background-color: #06c;
+    }
+
+    .back-button {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background-color: #f44336;
+    }
+  </style>
+</head>
+<body>
+
+  <a href="index.html"><button class="back-button">← Back to Home</button></a>
+
+  <h1>Game Portal</h1>
+
+  <div class="game-container">
+    <h2>Game 1: Deal or No Deal</h2>
+    <button onclick="loadGame('game1', 'https://scratch.mit.edu/projects/340716311/embed')">Load Game</button>
+    <div id="game1" class="embed-wrapper"></div>
+  </div>
+
+  <div class="game-container">
+    <h2>Game 2: Puzzle Master</h2>
+    <button onclick="loadGame('game2', 'https://scratch.mit.edu/projects/1130948011/embed')">Load Game</button>
+    <div id="game2" class="embed-wrapper"></div>
+  </div>
+
+  <script>
+    function loadGame(containerId, gameUrl) {
+      const container = document.getElementById(containerId);
+      if (container.innerHTML === '') {
+        const embed = document.createElement('embed');
+        embed.src = gameUrl;
+        embed.type = "text/html";
+        container.appendChild(embed);
+        container.style.display = 'block';
+      }
+    }
+  </script>
+
+</body>
+</html>
 
