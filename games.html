@@ -129,31 +129,37 @@
   let currentGameId = null;
 
 // ------------------ Game Loader ------------------
-  function loadGame(containerId, gameUrl) {
-    // If a different game is already loaded, remove it
-    if (currentGameId && currentGameId !== containerId) {
-      const prevContainer = document.getElementById(currentGameId);
-      prevContainer.innerHTML = '';
-      prevContainer.style.display = 'none';
-    }
+function loadGame(containerId, gameUrl) {
+  // If a different game is already loaded, remove it
+  if (currentGameId && currentGameId !== containerId) {
+    const prevContainer = document.getElementById(currentGameId);
+    const parentContainer = prevContainer.parentElement;
 
-    const container = document.getElementById(containerId);
+    // Reset content and hide it
+    prevContainer.innerHTML = '';
+    prevContainer.style.display = 'none';
 
-    // If the selected game is already loaded, do nothing
-    if (currentGameId === containerId && container.innerHTML !== '') {
-      return;
-    }
-
-    // Load the new game
-    const embed = document.createElement('iframe');
-    embed.src = gameUrl;
-    embed.allowFullscreen = true;
-    container.innerHTML = ''; // Clear just in case
-    container.appendChild(embed);
-    container.style.display = 'block';
-
-    currentGameId = containerId;
+    // Remove maximize styling if it was applied
+    parentContainer.classList.remove('maximized');
   }
+
+  const container = document.getElementById(containerId);
+
+  // If the selected game is already loaded, do nothing
+  if (currentGameId === containerId && container.innerHTML !== '') {
+    return;
+  }
+
+  // Load the new game
+  const embed = document.createElement('iframe'); // or 'embed', if you prefer
+  embed.src = gameUrl;
+  embed.allowFullscreen = true;
+  container.innerHTML = '';
+  container.appendChild(embed);
+  container.style.display = 'block';
+
+  currentGameId = containerId;
+}
 </script>
   
 </body>
