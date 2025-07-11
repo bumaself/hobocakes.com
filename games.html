@@ -53,6 +53,34 @@
       left: 20px;
       background-color: #f44336;
     }
+    .maximize-btn {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      vertical-align: middle;
+      margin-left: 10px;
+    }
+    
+    .maximize-btn img {
+      width: 20px;
+      height: 20px;
+      filter: invert(100%);
+    }
+    
+    .game-container.maximized {
+      position: relative;
+      max-width: none;
+      width: 100%;
+      height: auto;
+      z-index: 10;
+    }
+    
+    .game-container.maximized .embed-wrapper embed,
+    .game-container.maximized .embed-wrapper iframe {
+      height: 80vh;
+      width: 100%;
+    }
+
   </style>
 </head>
 <body>
@@ -82,6 +110,12 @@
   </div>
 
   <script>
+    
+  function toggleMaximize(containerId) {
+    const container = document.getElementById(containerId).parentElement;
+    container.classList.toggle('maximized');
+  }
+
   let currentGameId = null;
 
   function loadGame(containerId, gameUrl) {
