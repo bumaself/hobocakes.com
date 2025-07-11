@@ -74,17 +74,32 @@
   </div>
 
   <script>
-    function loadGame(containerId, gameUrl) {
-      const container = document.getElementById(containerId);
-      if (container.innerHTML === '') {
-        const embed = document.createElement('embed');
-        embed.src = gameUrl;
-        embed.type = "text/html";
-        container.appendChild(embed);
-        container.style.display = 'block';
-      }
+  let currentGameId = null;
+
+  function loadGame(containerId, gameUrl) {
+    // If a different game is already loaded, remove it
+    if (currentGameId && currentGameId !== containerId) {
+      const prevContainer = document.getElementById(currentGameId);
+      prevContainer.innerHTML = '';
+      prevContainer.style.display = 'none';
     }
-  </script>
+
+    const container = document.getElementById(containerId);
+
+    // If the selected game is already loaded, do nothing
+    if (currentGameId === containerId && container.innerHTML !== '') {
+      return;
+    }
+
+    // Load the new game
+    const embed = document.createElement('embed');
+    embed.src = gameUrl;
+    embed.type = "text/html";
+    container.innerHTML = ''; // Clear just in case
+    container.appendChild(embed);
+    container.style.display = 'block';
+
+    currentGameId = containerId;  </script>
 
 </body>
 </html>
