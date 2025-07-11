@@ -95,24 +95,32 @@
     <button onclick="loadGame('game1', 'https://scratch.mit.edu/projects/340716311/embed')">Load Game</button>
     &nbsp;&nbsp;
     <button class="maximize-btn" onclick="toggleMaximize('game1')">
-      <img src="maximize.png" alt="Maximize" />    
+      <img src="maximize.png" alt="Maximize" title="Maximize window" />
+    </button>
     <div id="game1" class="embed-wrapper"></div>
   </div>
 
   <div class="game-container">
     <h2>Fishing Simulator</h2>
     <button onclick="loadGame('game2', 'https://scratch.mit.edu/projects/1130948011/embed')">Load Game</button>
+    <button class="maximize-btn" onclick="toggleMaximize('game1')">
+      <img src="maximize.png" alt="Maximize" title="Maximize window" />
+    </button>
     <div id="game2" class="embed-wrapper"></div>
   </div>
 
   <div class="game-container">
     <h2>Geometry Dash</h2>
     <button onclick="loadGame('game3', 'https://scratch.mit.edu/projects/105500895/embed')">Load Game</button>
+    <button class="maximize-btn" onclick="toggleMaximize('game1')">
+      <img src="maximize.png" alt="Maximize" title="Maximize window" />
+    </button>
     <div id="game3" class="embed-wrapper"></div>
   </div>
 
   <script>
-    
+
+// ------------------ Game Maximize Toggle ------------------
   function toggleMaximize(containerId) {
     const container = document.getElementById(containerId).parentElement;
     container.classList.toggle('maximized');
@@ -120,6 +128,7 @@
 
   let currentGameId = null;
 
+// ------------------ Game Loader ------------------
   function loadGame(containerId, gameUrl) {
     // If a different game is already loaded, remove it
     if (currentGameId && currentGameId !== containerId) {
@@ -136,9 +145,9 @@
     }
 
     // Load the new game
-    const embed = document.createElement('embed');
+    const embed = document.createElement('iframe');
     embed.src = gameUrl;
-    embed.type = "text/html";
+    embed.allowFullscreen = true;
     container.innerHTML = ''; // Clear just in case
     container.appendChild(embed);
     container.style.display = 'block';
